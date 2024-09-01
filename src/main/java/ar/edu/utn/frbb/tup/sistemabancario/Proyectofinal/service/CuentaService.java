@@ -72,4 +72,9 @@ public class CuentaService {
         cuenta.setSaldo(cuenta.getSaldo()+ monto);
         cuentaDao.update(cuenta);
     }
+
+    public void actualizarSaldoRetiro(Cuenta cuenta, double monto) {
+        cuenta.setSaldo(cuenta.getSaldo() - monto);
+        cuentaDao.update(cuenta);
+    }
 }

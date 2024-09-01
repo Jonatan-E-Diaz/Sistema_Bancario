@@ -26,7 +26,7 @@ public class DepositoService {
             return generarRespuesta("La cuenta NO existe", "Fallido");
         }
         if (!depositoDto.getMoneda().equals(String.valueOf(cuenta.getTipoMoneda()))){
-            return generarRespuesta("La cuenta son de diferente tipo", "Fallido");
+            return generarRespuesta("Las cuentas son de diferente tipo", "Fallido");
         }
 
         return  depositar(cuenta,depositoDto);
@@ -44,7 +44,6 @@ public class DepositoService {
         movimientos.save(cuenta, deposito, TipoMovimiento.DEPOSITO,"DEPOSITO REALIZADO A LA CUENTA " + cuenta.getNumeroCuenta());
 
         return generarRespuesta("Deposito realizado", "Exitoso");
-
     }
     private Operacion toDeposito(OperacionDto depositoDto) {
         Operacion deposito = new Operacion();
