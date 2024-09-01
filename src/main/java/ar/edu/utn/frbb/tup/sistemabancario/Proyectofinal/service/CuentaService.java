@@ -77,4 +77,15 @@ public class CuentaService {
         cuenta.setSaldo(cuenta.getSaldo() - monto);
         cuentaDao.update(cuenta);
     }
+
+    public void actualizarSaldoTransferencia(Cuenta cuentaOrigen,Cuenta cuentaDestino, double monto, double comision) {
+        cuentaOrigen.setSaldo(cuentaOrigen.getSaldo() - monto- comision);
+        cuentaDestino.setSaldo(cuentaDestino.getSaldo() + monto);
+        cuentaDao.update(cuentaOrigen);
+        cuentaDao.update(cuentaDestino);
+    }
+
+
+
+
 }
