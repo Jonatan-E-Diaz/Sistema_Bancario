@@ -19,7 +19,7 @@ public class Cuenta {
     private TipoMoneda tipoMoneda;
     @JsonManagedReference
     private Cliente titular;
-    //@JsonIgnore
+    @JsonIgnore
     private Set<Movimientos> movimientos;
 
 
@@ -81,6 +81,11 @@ public class Cuenta {
 
     public Set<Movimientos> getMovimientos() {
         return movimientos;
+    }
+
+
+    public void setMovimientos(Set<Movimientos> movimientos) {
+        this.movimientos = movimientos;
     }
 
     public void agregarHistorial(Movimientos movimientos) {

@@ -67,16 +67,36 @@ public class Movimientos {
 
     public void save(Cuenta cuenta,Object operacion, TipoMovimiento movimiento, String descripcion) {
         Movimientos movimientos = new Movimientos();
-        if (movimiento==TipoMovimiento.DEPOSITO) {
+        if (movimiento == TipoMovimiento.DEPOSITO) {
             Operacion deposito = (Operacion) operacion;
             movimientos.setNumeroTransaccion(deposito.getNumeroTransaccion());
             movimientos.setMonto(deposito.getMonto());
             movimientos.setFecha(deposito.getFecha());
             movimientos.setDescripcion(descripcion);
             movimientos.setMovimiento(movimiento);
-
+        } else if (movimiento == TipoMovimiento.RETIRO) {
+            Operacion retiro = (Operacion) operacion;
+            movimientos.setNumeroTransaccion(retiro.getNumeroTransaccion());
+            movimientos.setMonto(retiro.getMonto());
+            movimientos.setFecha(retiro.getFecha());
+            movimientos.setDescripcion(descripcion);
+            movimientos.setMovimiento(movimiento);
+        } else if (movimiento == TipoMovimiento.TRANSFERENCIA_ENTRADA) {
+            Transferencia transferenciaentrada = (Transferencia) operacion;
+            movimientos.setNumeroTransaccion(transferenciaentrada.getNumeroTransaccion());
+            movimientos.setMonto(transferenciaentrada.getMonto());
+            movimientos.setFecha(transferenciaentrada.getFecha());
+            movimientos.setDescripcion(descripcion);
+            movimientos.setMovimiento(movimiento);
         }
-
+            else if (movimiento == TipoMovimiento.TRANSFERENCIA_SALIDA) {
+                Transferencia transferenciasalida = (Transferencia) operacion;
+                movimientos.setNumeroTransaccion(transferenciasalida.getNumeroTransaccion());
+                movimientos.setMonto(transferenciasalida.getMonto());
+                movimientos.setFecha(transferenciasalida.getFecha());
+                movimientos.setDescripcion(descripcion);
+                movimientos.setMovimiento(movimiento);
+            }
         cuenta.agregarHistorial(movimientos);
     }
 }

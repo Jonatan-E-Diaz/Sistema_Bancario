@@ -27,7 +27,7 @@ public class HistorialService {
 
     private HistorialDto obtenerHistorial(Cuenta cuenta) {
 
-/*        Set<Movimientos> transacciones = cuenta.getMovimientos().stream()
+           Set<Movimientos> transacciones = cuenta.getMovimientos().stream()
                 .map(movimiento -> new Movimientos(
                         movimiento.getMonto(),
                         movimiento.getDescripcion(),
@@ -36,10 +36,10 @@ public class HistorialService {
                         movimiento.getMovimiento()
                         ))
                 .collect(Collectors.toSet());
-*/
+
         HistorialDto respuestaHistorial = new HistorialDto();
         respuestaHistorial.setNumeroCuenta(cuenta.getNumeroCuenta());
-        respuestaHistorial.setHistorial(cuenta.getMovimientos());
+        respuestaHistorial.setHistorial(transacciones);
 
         return respuestaHistorial;
 

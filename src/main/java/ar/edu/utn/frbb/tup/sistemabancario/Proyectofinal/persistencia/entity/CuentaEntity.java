@@ -1,11 +1,9 @@
 package ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.persistencia.entity;
 
-import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.Cliente;
-import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.Cuenta;
-import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.TipoCuenta;
-import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.TipoMoneda;
+import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 public class CuentaEntity extends BaseEntity {
 
@@ -15,7 +13,7 @@ public class CuentaEntity extends BaseEntity {
     private TipoCuenta tipoCuenta;
     private TipoMoneda tipoMoneda;
     private Cliente titular;
-    //private Set<Movimientos> movimientos;
+    private Set<Movimientos> movimientos;
 
     public CuentaEntity(Cuenta cuenta) {
         super(cuenta.getNumeroCuenta());
@@ -25,7 +23,7 @@ public class CuentaEntity extends BaseEntity {
         this.tipoCuenta = cuenta.getTipoCuenta();
         this.tipoMoneda = cuenta.getTipoMoneda();
         this.titular = cuenta.getTitular();
-        //this.movimientos = cuenta.getMovimientos();
+        this.movimientos = cuenta.getMovimientos();
     }
     public Cuenta toCuenta() {
         Cuenta cuenta = new Cuenta();
@@ -35,7 +33,7 @@ public class CuentaEntity extends BaseEntity {
         cuenta.setTipoCuenta(this.tipoCuenta);
         cuenta.setTipoMoneda(this.tipoMoneda);
         cuenta.setTitular(this.titular);
-        //cuenta.setMovimientos(this.movimientos);
+        cuenta.setMovimientos(this.movimientos);
         return cuenta;
     }
 
