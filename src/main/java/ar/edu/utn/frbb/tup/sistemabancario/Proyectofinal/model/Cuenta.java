@@ -25,7 +25,7 @@ public class Cuenta {
 
     public Cuenta() {
         Random random = new Random();
-        this.numeroCuenta = random.nextLong();
+        this.numeroCuenta = generarNumeroCuenta(random);
         this.fechaApertura = LocalDate.now();
         this.saldo = 0;
         this.movimientos = new HashSet<>();
@@ -85,6 +85,10 @@ public class Cuenta {
 
     public void agregarHistorial(Movimientos movimientos) {
         this.movimientos.add(movimientos);
-
     }
+
+    private long generarNumeroCuenta(Random random) {
+        return (long) random.nextInt(100000000);
+    }
+
 }

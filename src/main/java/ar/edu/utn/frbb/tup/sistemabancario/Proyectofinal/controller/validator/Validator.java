@@ -82,6 +82,22 @@ public class Validator {
                 throw new InputErrorException("El TIPO DE CUENTA ingresado no es valido.");
             }
         }
+
+        public void validarNumeroCuenta(long numeroCuenta) throws InputErrorException {
+            String nroCuentaString = String.valueOf(numeroCuenta);
+
+            if (!nroCuentaString.matches("\\d{1,8}")) {
+                throw new InputErrorException("El NUMERO DE CUENTA ingresado no es valido.");
+            }
+        }
+
+        public void validarMonto(double monto) throws InputErrorException {
+            if (monto <= 0) {
+                throw new InputErrorException("El MONTO ingresado no es valido.");
+            }
+        }
+
+
 }
 
 

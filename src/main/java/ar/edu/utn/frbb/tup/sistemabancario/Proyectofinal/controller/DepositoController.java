@@ -3,6 +3,7 @@ package ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.dto.OperacionDto;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.dto.RespuestaDto;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.validator.OperacionValidator;
+import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.exceptions.InputErrorException;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.service.DepositoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +22,7 @@ public class DepositoController {
 
     @PostMapping
 
-    public RespuestaDto depositar(@RequestBody OperacionDto operacionDto) {
+    public RespuestaDto depositar(@RequestBody OperacionDto operacionDto) throws InputErrorException {
 
         operacionValidator.validarOperacion(operacionDto);
         return depositoService.realizarDeposito(operacionDto);
