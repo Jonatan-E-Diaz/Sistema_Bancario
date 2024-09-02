@@ -33,7 +33,7 @@ public class ClienteController {
 
     }
     @GetMapping("/{dni}")
-    public Cliente findCliente(@PathVariable long dni ){
+    public Cliente findCliente(@PathVariable long dni ) throws ClienteDoesntExistException {
         return clienteService.buscarCliente(dni);
 
     }

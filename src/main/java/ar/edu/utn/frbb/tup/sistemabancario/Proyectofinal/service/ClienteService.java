@@ -29,11 +29,11 @@ public class ClienteService {
        return clienteDao.save(cliente);
     }
 
-    public Cliente buscarCliente(long dni) {
+    public Cliente buscarCliente(long dni) throws ClienteDoesntExistException {
         Cliente cliente = clienteDao.find(dni);
 
         if (cliente == null) {
-            throw new IllegalArgumentException("El cliente no existe");
+            throw new ClienteDoesntExistException("No existe el cliente con DNI " + dni + ".");
         }
 
     return cliente;

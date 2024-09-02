@@ -42,7 +42,7 @@ public class CuentaService {
 
         return cuenta;
     }
-    private Cuenta agregarTitular(CuentaDto cuentaDto) {
+    private Cuenta agregarTitular(CuentaDto cuentaDto) throws ClienteDoesntExistException {
         Cuenta cuenta = new Cuenta();
         cuenta.setTipoCuenta(TipoCuenta.valueOf(cuentaDto.getTipoCuenta()));
         cuenta.setTipoMoneda(TipoMoneda.valueOf(cuentaDto.getTipoMoneda()));
