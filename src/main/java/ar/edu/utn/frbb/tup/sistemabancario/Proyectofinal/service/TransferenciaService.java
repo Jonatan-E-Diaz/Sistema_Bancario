@@ -79,9 +79,9 @@ public class TransferenciaService {
     }
 
     private double calcularComision(double monto, TipoMoneda moneda) {
-        if (moneda == TipoMoneda.PESOS && monto < 1000000) {
+        if (moneda == TipoMoneda.PESOS && monto > 1000000) {
             return monto * 0.02;
-        } else if (moneda == TipoMoneda.DOLARES && monto < 5000) {
+        } else if (moneda == TipoMoneda.DOLARES && monto > 5000) {
             return monto * 0.005;
         } else {
             return monto*0;
