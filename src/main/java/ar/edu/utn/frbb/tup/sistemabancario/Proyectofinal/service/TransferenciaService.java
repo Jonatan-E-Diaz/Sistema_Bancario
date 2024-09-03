@@ -30,29 +30,38 @@ public class TransferenciaService {
 
         Cuenta cuentaOrigen = cuentaDao.findByNumeroCuenta(transferenciaDto.getCuentaOrigen());
 
-         if (cuentaOrigen == null) {
-             return generarRespuesta("Cuenta origen no encontrada", "Fallido");
-         }
-         Cuenta cuentaDestino = cuentaDao.findByNumeroCuenta(transferenciaDto.getCuentaDestino());
-         if (cuentaDestino == null) {
+        if (cuentaOrigen == null) {
+            return generarRespuesta("Cuenta origen no encontrada", "Fallido");
+        }
+
+        Cuenta cuentaDestino = cuentaDao.findByNumeroCuenta(transferenciaDto.getCuentaDestino());
+
+        if (cuentaDestino == null) {
             return generarRespuesta("Cuenta destino no encontrada", "Fallido");
         }
-         if (cuentaOrigen.getTipoMoneda() != cuentaDestino.getTipoMoneda() && !Objects.equals(transferenciaDto.getMoneda(), String.valueOf(cuentaOrigen.getTipoMoneda()))) {
-             return generarRespuesta("Las cuentas son de diferente tipo", "Fallido");
-         }
-         if (cuentaOrigen.getSaldo() < transferenciaDto.getMonto()) {
+
+        // Verificación del tipo de moneda primero
+        if (!cuentaOrigen.getTipoMoneda().equals(cuentaDestino.getTipoMoneda())) {
+            return generarRespuesta("Las cuentas son de diferente tipo", "Fallido");
+        }
+
+        if (cuentaOrigen.getSaldo() < transferenciaDto.getMonto()) {
             return generarRespuesta("Saldo insuficiente", "Fallido");
         }
+
+        // Verificación de banco
         if (!cuentaOrigen.getTitular().getBanco().equals(cuentaDestino.getTitular().getBanco())) {
-            if (banelcoService.comprobarBanco(cuentaDestino.getTitular().getDni())){
+            if (banelcoService.comprobarBanco(cuentaDestino.getTitular().getDni())) {
                 return realizarTransferencia(transferenciaDto, cuentaOrigen, cuentaDestino);
-            }
-            else {
+            } else {
                 return generarRespuesta("El banco destino no es Banelco", "Fallido");
             }
         }
+
         return realizarTransferencia(transferenciaDto, cuentaOrigen, cuentaDestino);
     }
+
+
 
     private RespuestaDto generarRespuesta(String mensaje, String estado) {
         RespuestaDto respuesta = new RespuestaDto();
