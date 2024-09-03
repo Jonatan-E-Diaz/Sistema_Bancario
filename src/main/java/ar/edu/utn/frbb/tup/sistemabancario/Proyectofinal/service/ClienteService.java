@@ -4,7 +4,6 @@ import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.dto.ClienteD
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.Cliente;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.Cuenta;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.exceptions.ClienteDoesntExistException;
-import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.exceptions.CuentaDoesntExistException;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.exceptions.NotPosibleException;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.persistencia.ClienteDao;
 import org.springframework.beans.factory.annotation.Autowired;

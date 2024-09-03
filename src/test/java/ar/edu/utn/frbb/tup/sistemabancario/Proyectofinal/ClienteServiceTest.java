@@ -3,7 +3,6 @@ package ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.dto.ClienteDto;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.*;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.exceptions.ClienteDoesntExistException;
-import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.exceptions.CuentaDoesntExistException;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.exceptions.NotPosibleException;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.persistencia.ClienteDao;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.service.ClienteService;
@@ -148,5 +147,27 @@ class ClienteServiceTest {
         assertTrue(result);
         Mockito.verify(clienteDao).delete(12345678L);
     }
+    @Test
+    void buscarCliente_exitoso() throws ClienteDoesntExistException {
+        // Creamos un cliente simulado
+        Cliente cliente = new Cliente();
+        cliente.setDni(12345678L);
+        cliente.setNombre("Juan");
+        cliente.setApellido("Pérez");
+
+        // Mockeamos el comportamiento del DAO para devolver el cliente cuando se lo busca por DNI
+        Mockito.when(clienteDao.find(12345678L)).thenReturn(cliente);
+
+        // Llamamos al servicio para buscar el cliente
+        Cliente resultado = clienteService.buscarCliente(12345678L);
+
+        // Verificamos los resultados
+        assertNotNull(resultado);
+        assertEquals(12345678L, resultado.getDni());
+        assertEquals("Juan", resultado.getNombre());
+        assertEquals("Pérez", resultado.getApellido());
+    }
+
+
 }
 
