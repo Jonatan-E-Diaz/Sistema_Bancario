@@ -26,7 +26,5 @@ public class DepositoController {
 
         operacionValidator.validarOperacion(operacionDto);
         return depositoService.realizarDeposito(operacionDto);
-
     }
-
 }

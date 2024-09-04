@@ -2,7 +2,6 @@ package ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller;
 
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.dto.ClienteDto;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.exceptions.ClienteDoesntExistException;
-import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.exceptions.CuentaDoesntExistException;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.service.ClienteService;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.validator.ClienteValidator;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.Cliente;
@@ -23,19 +22,16 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-
     @PostMapping
     public Cliente addCliente(@RequestBody ClienteDto clienteDto) throws NotPosibleException, InputErrorException {
 
         clienteValidator.validar(clienteDto);
-
         return clienteService.darDeAltaCliente(clienteDto);
-
     }
+
     @GetMapping("/{dni}")
     public Cliente findCliente(@PathVariable long dni ) throws ClienteDoesntExistException {
         return clienteService.buscarCliente(dni);
-
     }
 
     @DeleteMapping("/{dni}")
@@ -43,5 +39,4 @@ public class ClienteController {
         clienteService.eliminarCliente(dni);
         return ResponseEntity.ok("Cliente con DNI " + dni + " ha sido eliminado exitosamente.");
     }
-
 }

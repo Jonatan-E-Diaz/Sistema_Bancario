@@ -27,7 +27,6 @@ public class CuentaController {
     public Cuenta addCuenta(@RequestBody CuentaDto cuentaDto) throws InputErrorException, CuentaAlreadyExistException, NotPosibleException, ClienteDoesntExistException {
         cuentaValidator.validar(cuentaDto);
         return cuentaService.crearCuenta(cuentaDto);
-
     }
 
     @GetMapping("/{dni}")

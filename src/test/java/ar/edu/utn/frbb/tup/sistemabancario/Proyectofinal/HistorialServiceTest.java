@@ -12,11 +12,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -35,7 +33,7 @@ class HistorialServiceTest {
 
     @Test
     void consultarHistorial_cuentaExiste_devuelveHistorial() throws CuentaDoesntExistException {
-        // Arrange
+
         long cuentaId = 12345L;
         Cuenta cuentaMock = new Cuenta();
         cuentaMock.setNumeroCuenta(cuentaId);
@@ -46,10 +44,8 @@ class HistorialServiceTest {
 
         when(cuentaDao.findByNumeroCuenta(cuentaId)).thenReturn(cuentaMock);
 
-        // Act
         HistorialDto historial = historialService.consultarHistorial(cuentaId);
 
-        // Assert
         assertNotNull(historial);
         assertEquals(cuentaId, historial.getNumeroCuenta());
         assertEquals(2, historial.getHistorial().size());
@@ -58,12 +54,11 @@ class HistorialServiceTest {
 
     @Test
     void consultarHistorial_cuentaNoExiste_lanzaExcepcion() {
-        // Arrange
+
         long cuentaId = 12345L;
 
         when(cuentaDao.findByNumeroCuenta(cuentaId)).thenReturn(null);
 
-        // Act & Assert
         assertThrows(CuentaDoesntExistException.class, () -> {
             historialService.consultarHistorial(cuentaId);
         });

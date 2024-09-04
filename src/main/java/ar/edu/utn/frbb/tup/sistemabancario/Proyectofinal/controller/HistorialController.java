@@ -19,6 +19,5 @@ public class HistorialController {
     @GetMapping("/{cuentaId}/transacciones")
     public HistorialDto consultarHistorial(@PathVariable long cuentaId) throws CuentaDoesntExistException {
         return historialService.consultarHistorial(cuentaId);
-
     }
 }

@@ -26,8 +26,5 @@ public class RetiroController {
 
         operacionValidator.validarOperacion(operacionDto);
         return retiroService.realizarRetiro(operacionDto);
-
     }
-
-
 }

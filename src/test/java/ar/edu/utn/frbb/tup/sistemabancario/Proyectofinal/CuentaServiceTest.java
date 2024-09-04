@@ -17,10 +17,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-
 import java.util.HashSet;
 import java.util.Set;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CuentaServiceTest {
@@ -62,21 +60,17 @@ class CuentaServiceTest {
         cuentaDto.setTipoCuenta("CAJA_AHORRO");
         cuentaDto.setTipoMoneda("PESOS");
 
-        // Simulamos el cliente
         Cliente cliente = Mockito.mock(Cliente.class);
         Cuenta cuentaExistente = Mockito.mock(Cuenta.class); // Simulamos una cuenta existente
 
-        // Mockeamos las interacciones
         Mockito.when(clienteService.buscarCliente(12345678L)).thenReturn(cliente);
         Mockito.when(cliente.tieneCuenta(TipoCuenta.CAJA_AHORRO, TipoMoneda.PESOS)).thenReturn(true); // El cliente ya tiene la cuenta
         Mockito.when(cuentaDao.find(12345678L)).thenReturn(cuentaExistente); // Simulamos que ya existe la cuenta en la base de datos
 
-        // Verificamos que se lanza la excepción correcta
         assertThrows(CuentaAlreadyExistException.class, () -> {
             cuentaService.crearCuenta(cuentaDto);
         });
     }
-
 
     @Test
     void crearCuenta_cuentaCorrienteDolaresNoPermitida() throws ClienteDoesntExistException, NotPosibleException {
@@ -103,7 +97,6 @@ class CuentaServiceTest {
         cuentaDto.setTipoCuenta("CAJA_AHORRO");
         cuentaDto.setTipoMoneda("PESOS");
 
-        // Simulamos el cliente
         Cliente cliente = Mockito.mock(Cliente.class);
 
         Mockito.when(clienteService.buscarCliente(12345678L)).thenReturn(cliente);
@@ -144,21 +137,17 @@ class CuentaServiceTest {
 
         assertEquals(2, cuentasResult.size());
         assertTrue(cuentasResult.stream().anyMatch(c -> c.getNumeroCuenta() == 123));
-        assertTrue(cuentasResult.stream().anyMatch(c -> c.getNumeroCuenta() == 456));    }
+        assertTrue(cuentasResult.stream().anyMatch(c -> c.getNumeroCuenta() == 456));
+    }
 
     @Test
     void buscarCuentas_NoExito() {
         long dniCliente = 12345678L;
 
-        // Simulamos que no se encuentran cuentas para el cliente en la base de datos
         Mockito.when(cuentaDao.getAllCuentas(dniCliente)).thenReturn(new HashSet<>());
 
         Set<Cuenta> cuentasResult = cuentaService.buscarCuentas(dniCliente);
 
-        // Verificamos que el resultado sea un conjunto vacío
         assertTrue(cuentasResult.isEmpty(), "El conjunto de cuentas debe estar vacío");
     }
-
-
-
 }
