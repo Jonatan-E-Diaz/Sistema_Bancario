@@ -39,7 +39,7 @@ public class TransferenciaService {
         if (!cuentaOrigen.getTipoMoneda().equals(cuentaDestino.getTipoMoneda())) {
             return generarRespuesta("Las cuentas son de diferente tipo", "Fallido");
         }
-        //ACA
+
         TipoMoneda monedaDto = TipoMoneda.valueOf(transferenciaDto.getMoneda());
         if (!cuentaOrigen.getTipoMoneda().equals(monedaDto)) {
             return generarRespuesta("La moneda no coincide", "Fallido");
