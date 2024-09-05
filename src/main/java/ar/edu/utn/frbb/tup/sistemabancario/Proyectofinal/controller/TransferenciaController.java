@@ -3,6 +3,7 @@ package ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.dto.RespuestaDto;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.dto.TransferenciaDto;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.validator.TransferenciaValidator;
+import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.exceptions.InputErrorException;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.service.TransferenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +23,7 @@ public class TransferenciaController {
 
     @PostMapping
 
-    public RespuestaDto transferir(@RequestBody TransferenciaDto transferenciaDto) {
+    public RespuestaDto transferir(@RequestBody TransferenciaDto transferenciaDto) throws InputErrorException {
 
         transferenciaValidator.validarTransferencia(transferenciaDto);
         return transferenciaService.transferir(transferenciaDto);
