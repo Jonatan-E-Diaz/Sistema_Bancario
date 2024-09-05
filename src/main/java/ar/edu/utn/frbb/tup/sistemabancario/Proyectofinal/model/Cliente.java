@@ -1,9 +1,7 @@
 package ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model;
-//Modelado de clientes
 
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.dto.ClienteDto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -73,8 +71,6 @@ public class Cliente extends Persona {
         }
         cuentas.add(cuenta);
     }
-
-
 }
 
 

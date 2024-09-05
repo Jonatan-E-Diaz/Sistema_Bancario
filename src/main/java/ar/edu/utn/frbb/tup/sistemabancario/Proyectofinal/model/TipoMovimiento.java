@@ -6,5 +6,4 @@ public enum TipoMovimiento {
     RETIRO,
     TRANSFERENCIA_ENTRADA,
     TRANSFERENCIA_SALIDA;
-
 }

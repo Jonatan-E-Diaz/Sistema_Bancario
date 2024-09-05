@@ -8,6 +8,4 @@ public class BanelcoService {
     public boolean comprobarBanco(long dni){
         return (dni% 2 == 0);
     }
-
-
 }

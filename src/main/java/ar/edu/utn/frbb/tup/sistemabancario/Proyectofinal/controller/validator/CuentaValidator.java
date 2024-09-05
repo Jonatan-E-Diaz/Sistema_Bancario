@@ -1,6 +1,5 @@
 package ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.validator;
 
-import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.dto.ClienteDto;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.dto.CuentaDto;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.exceptions.InputErrorException;
 import org.springframework.beans.factory.annotation.Autowired;

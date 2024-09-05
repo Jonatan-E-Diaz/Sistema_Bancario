@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class TransferenciaValidator {
 
-
     public void validarTransferencia(TransferenciaDto transferenciaDto) {
     }
 }

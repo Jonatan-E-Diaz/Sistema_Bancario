@@ -2,7 +2,6 @@ package ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.validator;
 
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.exceptions.InputErrorException;
 import org.springframework.stereotype.Component;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -96,7 +95,6 @@ public class Validator {
                 throw new InputErrorException("El MONTO ingresado no es valido.");
             }
         }
-
 
 }
 

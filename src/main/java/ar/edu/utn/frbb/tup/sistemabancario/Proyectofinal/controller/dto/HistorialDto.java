@@ -1,7 +1,6 @@
 package ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.dto;
 
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.Movimientos;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,7 +17,6 @@ public class HistorialDto {
     public HistorialDto(){
         this.historial=new HashSet<>();
     }
-
 
     public long getNumeroCuenta() {
         return numeroCuenta;

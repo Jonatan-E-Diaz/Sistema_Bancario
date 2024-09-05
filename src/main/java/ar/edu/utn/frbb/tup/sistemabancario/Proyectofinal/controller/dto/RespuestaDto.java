@@ -2,7 +2,6 @@ package ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.dto;
 
 public class RespuestaDto {
 
-
     private String mensaje;
     private String estado;
 

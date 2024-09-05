@@ -1,13 +1,10 @@
 package ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model;
 
 import org.springframework.stereotype.Component;
-
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 @Component
 public class Movimientos {
-
-
+    
     private long numeroTransaccion;
     private double monto;
     private String descripcion;

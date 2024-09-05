@@ -7,12 +7,8 @@ import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.persistencia.CuentaDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLOutput;
-import java.util.Objects;
-
 @Service
 public class TransferenciaService {
-
 
     @Autowired
     private Movimientos movimientos;
@@ -40,7 +36,6 @@ public class TransferenciaService {
             return generarRespuesta("Cuenta destino no encontrada", "Fallido");
         }
 
-        // Verificación del tipo de moneda primero
         if (!cuentaOrigen.getTipoMoneda().equals(cuentaDestino.getTipoMoneda())) {
             return generarRespuesta("Las cuentas son de diferente tipo", "Fallido");
         }
@@ -49,7 +44,6 @@ public class TransferenciaService {
             return generarRespuesta("Saldo insuficiente", "Fallido");
         }
 
-        // Verificación de banco
         if (!cuentaOrigen.getTitular().getBanco().equals(cuentaDestino.getTitular().getBanco())) {
             if (banelcoService.comprobarBanco(cuentaDestino.getTitular().getDni())) {
                 return realizarTransferencia(transferenciaDto, cuentaOrigen, cuentaDestino);
@@ -60,7 +54,6 @@ public class TransferenciaService {
 
         return realizarTransferencia(transferenciaDto, cuentaOrigen, cuentaDestino);
     }
-
 
 
     private RespuestaDto generarRespuesta(String mensaje, String estado) {
@@ -81,7 +74,6 @@ public class TransferenciaService {
 
         cuentaDao.update(cuentaOrigen);
         cuentaDao.update(cuentaDestino);
-
 
         return generarRespuesta("Transferencia realizada", "Exitoso");
 

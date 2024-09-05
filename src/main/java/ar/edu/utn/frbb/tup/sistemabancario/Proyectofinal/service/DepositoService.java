@@ -52,7 +52,4 @@ public class DepositoService {
         deposito.setCuenta(depositoDto.getCuenta());
         return deposito;
     }
-
-
-
 }

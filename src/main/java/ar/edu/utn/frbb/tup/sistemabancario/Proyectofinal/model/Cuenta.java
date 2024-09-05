@@ -3,7 +3,6 @@ package ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Random;
@@ -21,7 +20,6 @@ public class Cuenta {
     private Cliente titular;
     @JsonIgnore
     private Set<Movimientos> movimientos;
-
 
     public Cuenta() {
         Random random = new Random();
@@ -83,7 +81,6 @@ public class Cuenta {
         return movimientos;
     }
 
-
     public void setMovimientos(Set<Movimientos> movimientos) {
         this.movimientos = movimientos;
     }
@@ -95,5 +92,4 @@ public class Cuenta {
     private long generarNumeroCuenta(Random random) {
         return (long) random.nextInt(100000000);
     }
-
 }

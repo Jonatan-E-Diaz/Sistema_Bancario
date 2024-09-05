@@ -9,8 +9,6 @@ import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.persistencia.ClienteDao
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-
 @Service
 public class ClienteService {
 
@@ -55,7 +53,4 @@ public class ClienteService {
             return clienteDao.delete(dni);
         }
     }
-
-
-
 }

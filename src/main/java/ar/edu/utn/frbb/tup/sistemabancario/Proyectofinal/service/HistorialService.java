@@ -7,7 +7,6 @@ import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.exceptions.Cuenta
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.persistencia.CuentaDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -44,6 +43,4 @@ public class HistorialService {
         return respuestaHistorial;
 
     }
-
-
 }

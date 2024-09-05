@@ -3,7 +3,6 @@ package ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.persistencia.entity;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.Cliente;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.Cuenta;
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.TipoPersona;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -19,7 +18,6 @@ public class ClienteEntity extends BaseEntity{
     private final LocalDate fechaAlta;
     private final String banco;
     private final List<Cuenta> cuentas;
-
 
     public ClienteEntity(Cliente cliente) {
         super(cliente.getDni());
@@ -53,6 +51,5 @@ public class ClienteEntity extends BaseEntity{
     public long getDni() {
         return dni;
     }
-
 
 }

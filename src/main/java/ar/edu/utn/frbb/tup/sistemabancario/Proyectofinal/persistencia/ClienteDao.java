@@ -27,8 +27,6 @@ public boolean delete(long dni) {
     return getInMemoryDatabase().remove(dni) != null;
 }
 
-
-
 @Override
 public String getEntityName(){
     return "CLIENTE";

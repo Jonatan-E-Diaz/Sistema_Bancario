@@ -1,7 +1,5 @@
 package ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.controller.dto;
 
-import java.time.LocalDate;
-
 public class PersonaDto {
 
     private String nombre;

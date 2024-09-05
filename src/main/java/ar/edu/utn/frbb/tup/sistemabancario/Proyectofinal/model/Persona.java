@@ -52,7 +52,6 @@ public class Persona {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    //Devuelve los años de la persona
     public int getEdad(){
         LocalDate fechaActual = LocalDate.now();
         LocalDate fechaNac = getFechaNacimiento();

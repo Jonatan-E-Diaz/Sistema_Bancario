@@ -17,5 +17,4 @@ public class OperacionValidator {
         validaciones.validarMonto(operacionDto.getMonto());
         validaciones.validarTipoMoneda(operacionDto.getMoneda());
     }
-
 }

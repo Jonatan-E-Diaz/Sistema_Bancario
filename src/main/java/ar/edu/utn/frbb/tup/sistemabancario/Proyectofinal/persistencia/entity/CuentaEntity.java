@@ -1,7 +1,6 @@
 package ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.persistencia.entity;
 
 import ar.edu.utn.frbb.tup.sistemabancario.Proyectofinal.model.*;
-
 import java.time.LocalDate;
 import java.util.Set;
 
